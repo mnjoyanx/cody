@@ -15,6 +15,9 @@
   
   # Enable pnpm
   NPM_FLAGS = "--version" # This helps Netlify detect pnpm usage
+  
+  # Skip Netlify's Next.js plugin since we're using static export
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 # Redirect all routes to index.html for client-side routing (SPA behavior)
 [[redirects]]

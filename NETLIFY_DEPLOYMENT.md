@@ -21,7 +21,9 @@ You have three configuration files:
    - **Base directory**: Leave empty
    - **Build command**: `pnpm install && pnpm run build --filter=web`
    - **Publish directory**: `apps/web/out`
-   - **Environment variables**: Add `NODE_VERSION = 18`
+   - **Environment variables**:
+     - `NODE_VERSION = 18`
+     - `NETLIFY_NEXT_PLUGIN_SKIP = true`
 5. Deploy the site
 
 ### Step 2: Deploy the Flow App
@@ -32,7 +34,9 @@ You have three configuration files:
    - **Base directory**: Leave empty
    - **Build command**: `pnpm install && pnpm run build --filter=@repo/flow`
    - **Publish directory**: `apps/flow/out`
-   - **Environment variables**: Add `NODE_VERSION = 18`
+   - **Environment variables**:
+     - `NODE_VERSION = 18`
+     - `NETLIFY_NEXT_PLUGIN_SKIP = true`
 4. Deploy the site
 
 ## Option 2: Use Configuration Files
@@ -89,6 +93,17 @@ If builds fail:
 2. Ensure pnpm is being used (Netlify should auto-detect it)
 3. Verify the publish directories exist after build
 4. Check build logs for specific error messages
+
+### Common Error: "@netlify/plugin-nextjs" failed
+
+If you see this error:
+
+```
+Plugin "@netlify/plugin-nextjs" failed
+Error: The directory "/opt/build/repo/apps/web/out" does not contain a Next.js production build.
+```
+
+**Solution**: Add the environment variable `NETLIFY_NEXT_PLUGIN_SKIP = true` to skip Netlify's Next.js plugin since we're using static export.
 
 ## Quick Commands for Local Testing
 
