@@ -1,0 +1,39 @@
+{
+  "name": "@repo/code",
+  "version": "0.0.1",
+  "description": "Code editing and preview components for Codifyer",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": ["**/*.css"],
+  "exports": {
+      "./*": "./dist/*.js",
+      "./dist/index.css": "./dist/index.css"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsup src/index.ts --format esm,cjs --watch --dts --external react",
+    "lint": "eslint src --ext .ts,.tsx",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "peerDependencies": {
+    "react": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.1",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tailwind-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "eslint": "^8.38.0",
+    "eslint-config-custom": "*",
+    "tsup": "^6.5.0",
+    "typescript": "^5.0.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

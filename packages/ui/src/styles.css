@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Chat color system - Updated to match Figma */
+    --chat-primary: 181 69% 55%; /* Teal color from Figma */
+    --chat-primary-foreground: 0 0% 100%;
+    --chat-secondary: 210 13% 93%; /* #eff1f3 */
+    --chat-secondary-foreground: 217 32% 17%;
+    --chat-muted: 210 14% 83%; /* #d1d5db */
+    --chat-muted-foreground: 210 6% 46%;
+    --chat-accent: 210 11% 96%; /* #f8f9fa */
+    --chat-accent-foreground: 222 47% 11%;
+    --chat-destructive: 0 84% 60%;
+    --chat-destructive-foreground: 0 0% 98%;
+    --chat-border: 220 13% 91%;
+    --chat-input: 220 13% 91%;
+    --chat-ring: 181 69% 55%;
+    --chat-background: 240 7% 97%; /* Light gray background */
+    --chat-card: 0 0% 100%;
+    --chat-card-foreground: 222 47% 11%;
+    --chat-radius: 0.75rem;
+  }
+
+  .dark {
+    --chat-primary: 181 69% 55%; /* Keep same primary in dark mode */
+    --chat-primary-foreground: 222 47% 11%;
+    --chat-secondary: 217 32% 17%;
+    --chat-secondary-foreground: 210 40% 98%;
+    --chat-muted: 217 32% 17%;
+    --chat-muted-foreground: 215 20% 65%;
+    --chat-accent: 217 32% 17%;
+    --chat-accent-foreground: 210 40% 98%;
+    --chat-destructive: 0 84% 60%;
+    --chat-destructive-foreground: 0 0% 98%;
+    --chat-border: 217 32% 17%;
+    --chat-input: 217 32% 17%;
+    --chat-ring: 181 69% 55%;
+    --chat-background: 222 84% 5%; /* Dark background */
+    --chat-card: 222 84% 5%;
+    --chat-card-foreground: 210 40% 98%;
+  }
+
+  /* Set DM Sans as default font */
+  * {
+    font-family:
+      "DM Sans",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      "Roboto",
+      "Oxygen",
+      "Ubuntu",
+      "Cantarell",
+      "Fira Sans",
+      "Droid Sans",
+      "Helvetica Neue",
+      sans-serif;
+  }
+}
+
+/* Custom chat utility classes */
+@layer utilities {
+  .chat-primary {
+    background-color: hsl(var(--chat-primary));
+    color: hsl(var(--chat-primary-foreground));
+  }
+
+  .chat-primary-hover {
+    background-color: hsl(var(--chat-primary) / 0.9);
+  }
+
+  .chat-bg {
+    background-color: hsl(var(--chat-background));
+  }
+
+  .chat-card {
+    background-color: hsl(var(--chat-card));
+    color: hsl(var(--chat-card-foreground));
+  }
+
+  .chat-muted {
+    color: hsl(var(--chat-muted-foreground));
+  }
+
+  .chat-border {
+    border-color: hsl(var(--chat-border));
+  }
+
+  .font-dm-sans {
+    font-family: "DM Sans", sans-serif;
+  }
+}

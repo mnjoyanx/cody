@@ -1,0 +1,45 @@
+{
+  "name": "@repo/chat",
+  "version": "0.0.1",
+  "private": true,
+  "module": "./dist/index.js",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    "./*": "./dist/*.js",
+    "./dist/index.css": "./dist/index.css"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsup --watch",
+    "lint": "eslint src/",
+    "clean": "rm -rf dist",
+    "type-check": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.56.4",
+    "zod": "^3.25.28",
+    "@hookform/resolvers": "^5.0.1"
+  },
+  "dependencies": {
+    "@repo/ui": "workspace:*",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.511.0",
+    "tailwind-merge": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.1",
+    "eslint": "^8.42.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  }
+}
