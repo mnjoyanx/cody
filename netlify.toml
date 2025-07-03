@@ -1,0 +1,23 @@
+# Configuration for WEB app deployment
+[build]
+  # Install command that works with pnpm and installs dependencies for the entire monorepo
+  command = "pnpm install && pnpm run build --filter=web"
+  
+  # The directory where the built files are located (Next.js static export outputs to 'out')
+  publish = "apps/web/out"
+  
+  # Set the base directory if needed
+  base = "/"
+
+[build.environment]
+  # Specify Node.js version
+  NODE_VERSION = "18"
+  
+  # Enable pnpm
+  NPM_FLAGS = "--version" # This helps Netlify detect pnpm usage
+
+# Redirect all routes to index.html for client-side routing (SPA behavior)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200 
